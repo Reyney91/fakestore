@@ -1,10 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <pageContainer/>
+  </div>
 </template>
+
+
+<script>
+import pageContainer from "./components/page-container";
+export default {
+  components:{
+    pageContainer
+  }
+}
+</script>
 
 <style>
 #app {

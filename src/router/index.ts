@@ -1,20 +1,37 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
-const routes: Array<RouteRecordRaw> = [
+import { createRouter, createWebHashHistory } from 'vue-router'
+import mainPage from '../components/main-page.vue'
+import productsList from '../components/products-list.vue'
+import productInfo from '../components/product-info.vue'
+import ordersList from '../components/orders-list.vue'
+import favoritePage from '../components/favorite-page.vue'
+const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'main',
+    component: mainPage
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/catalog',
+    name: 'catalog',
+    component: productsList
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: favoritePage
+  },
+  {
+    path:'/product/:id',
+    name:'product',
+    component:productInfo,
+    props: true
+  },
+  {
+    path:'/orders',
+    name:'orders',
+    component:ordersList,
+    props: true
+}
 ]
 
 const router = createRouter({
